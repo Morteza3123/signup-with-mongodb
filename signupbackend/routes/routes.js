@@ -2,7 +2,7 @@ const express = require('express')
 const router = express.Router()
 const signUpTemplateCopy = require('../models/signUpModels')
 
-router.post('./signup', (request, response) => {
+router.post('/signup', (request, response) => {
     const signedUpUser = new signUpTemplateCopy({
         fullName: request.body.fullName,
         username: request.body.username,
@@ -11,7 +11,7 @@ router.post('./signup', (request, response) => {
     })
 
     signedUpUser.save()
-    then(data => {
+    .then(data => {
         response.json(data)
     })
     .catch(error =>{
@@ -19,4 +19,4 @@ router.post('./signup', (request, response) => {
     })
 })
 
-module.export = router
+module.exports = router
